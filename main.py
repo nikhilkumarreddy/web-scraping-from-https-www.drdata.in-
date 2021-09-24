@@ -14,7 +14,7 @@ soup = BeautifulSoup(html_text, 'lxml')
 states = soup.find_all('div', class_= 'panel panel-default')
 doctors_links = []
 index_ = 0
-"""for state in states:
+for state in states:
     count_of_doctors_in_this_state = 0
     a = state.find('div', class_='panel-collapse collapse').find('div', class_  = 'panel-body')
     c = a.find('ul')
@@ -59,7 +59,7 @@ index_ = 0
     print(count_of_doctors_in_this_state , " ",j)
 
 df.to_csv('out_put.csv')
-print("DOne")"""
+print("DOne")
 
 
 print(df.head(5))
