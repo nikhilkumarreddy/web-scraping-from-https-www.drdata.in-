@@ -2,11 +2,10 @@ import time
 from bs4 import BeautifulSoup
 import requests
 from page_1 import page_01
-import numpy as np
+
 import pandas as pd
 
-head = ['Name', 'Specialization', 'Degree', 'Area of Practice', 'Date of Birth', 'Address', 'State', 'District',
-        'Geographical Area', 'Phone Number'] # details that we are scrapping
+head = ["col"+str(i) for i in range(0,2)] # details that we are scrapping
 
 df = pd.DataFrame(columns=head)
 html_text = requests.get('https://www.drdata.in/').text
@@ -33,11 +32,12 @@ for state in states:
             list_ = obj_1.doctor_details(ii)
             #print(len(list_)," ",list_)
             count_of_doctors_in_this_state += 1
-            if len(list_) == 10: #if our len of  requirements matches going to write into dataframe
+            if len(list_) == 2: #if our len of  requirements matches going to write into dataframe
                 df.loc[index_] = list_
                 index_ += 1
-                print(len(list_), " ", list_)
-        time.sleep(10)
+                #print(len(list_), " ", list_)
+        time.sleep(5)
+
 
     #doctors_links.append(link_1st_page)
     length_ , arr  = obj_1.scrap_2(link_1) # gives all the next pages of doctors of doctors link
@@ -50,13 +50,14 @@ for state in states:
                 list__ = obj_1.doctor_details(i)
 
                 count_of_doctors_in_this_state +=1
-                if len(list__) == 10:
+                if len(list__) == 2:
                     df.loc[index_] = list__
                     index_ += 1
-                    print("next page" ,len(list__), " ", list__)
-        time.sleep(20)
-    print(df.size)
-    print(count_of_doctors_in_this_state , " ",j)
+                    #print("next page" ,len(list__), " ", list__)
+    time.sleep(5)
+
+    print(df.shape)
+    print("Count of doctors in state ",j," ",count_of_doctors_in_this_state )
 
 df.to_csv('out_put.csv')
 print("DOne")

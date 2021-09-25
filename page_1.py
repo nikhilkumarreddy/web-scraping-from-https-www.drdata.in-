@@ -53,7 +53,7 @@ class page_01:
                     else:
                         actual_details.append(details[i+1].text)
 
-                if details[i].text == 'Specialization':
+                """if details[i].text == 'Specialization':
                     if details[i + 1].text == '':
                         actual_details.append('NaN')
                     else:
@@ -92,7 +92,7 @@ class page_01:
                     if details[i + 1].text == '':
                         actual_details.append('NaN')
                     else:
-                        actual_details.append(details[i+1].text)
+                        actual_details.append(details[i+1].text)"""
                 if details[i].text == 'Phone Number':
                     if details[i + 1].text == '':
                         actual_details.append('NaN')
