@@ -45,36 +45,8 @@ class page_01:
         try:
             details = find_table.find_all('td')
             for i in range(0,len(details)):
-                #print(details[i].text)
-                #header.append(details[i].text)
                 if details[i].text == 'Name':
                     if details[i+1].text == '':
-                        actual_details.append('NaN')
-                    else:
-                        actual_details.append(details[i+1].text)
-
-                """if details[i].text == 'Specialization':
-                    if details[i + 1].text == '':
-                        actual_details.append('NaN')
-                    else:
-                        actual_details.append(details[i+1].text)
-                if details[i].text == 'Degree':
-                    if details[i + 1].text == '':
-                        actual_details.append('NaN')
-                    else:
-                        actual_details.append(details[i+1].text)
-                if details[i].text == 'Area of Practice':
-                    if details[i + 1].text == '':
-                        actual_details.append('NaN')
-                    else:
-                        actual_details.append(details[i+1].text)
-                if details[i].text == 'Date of Birth':
-                    if details[i + 1].text == '':
-                        actual_details.append('NaN')
-                    else:
-                        actual_details.append(details[i+1].text)
-                if details[i].text == 'Address':
-                    if details[i + 1].text == '':
                         actual_details.append('NaN')
                     else:
                         actual_details.append(details[i+1].text)
@@ -82,18 +54,9 @@ class page_01:
                     if details[i + 1].text == '':
                         actual_details.append('NaN')
                     else:
-                        actual_details[i].append(details[i+1].text)
-                if details[i].text == 'District':
-                    if details[i + 1].text == '':
-                        actual_details.append('NaN')
-                    else:
                         actual_details.append(details[i+1].text)
-                if details[i].text == 'Geographical Area':
-                    if details[i + 1].text == '':
-                        actual_details.append('NaN')
-                    else:
-                        actual_details.append(details[i+1].text)"""
                 if details[i].text == 'Phone Number':
+                    print("D")
                     if details[i + 1].text == '':
                         actual_details.append('NaN')
                     else:

@@ -5,7 +5,7 @@ from page_1 import page_01
 
 import pandas as pd
 
-head = ["col"+str(i) for i in range(0,2)] # details that we are scrapping
+head = ["col"+str(i) for i in range(0,3)] # details that we are scrapping
 
 df = pd.DataFrame(columns=head)
 html_text = requests.get('https://www.drdata.in/').text
@@ -32,11 +32,16 @@ for state in states:
             list_ = obj_1.doctor_details(ii)
             #print(len(list_)," ",list_)
             count_of_doctors_in_this_state += 1
-            if len(list_) == 2: #if our len of  requirements matches going to write into dataframe
+            print(list_)
+
+            if len(list_) == 3: #if our len of  requirements matches going to write into dataframe
                 df.loc[index_] = list_
                 index_ += 1
-                #print(len(list_), " ", list_)
-        time.sleep(5)
+                strings = list(j)
+
+                print(len(list_), " ", list_)
+        time.sleep(3)
+    #break
 
 
     #doctors_links.append(link_1st_page)
@@ -50,14 +55,16 @@ for state in states:
                 list__ = obj_1.doctor_details(i)
 
                 count_of_doctors_in_this_state +=1
-                if len(list__) == 2:
+                print(list__)
+                if len(list__) == 3:
                     df.loc[index_] = list__
                     index_ += 1
-                    #print("next page" ,len(list__), " ", list__)
-    time.sleep(5)
+                    print("next page" ,len(list__), " ", list__)
+    time.sleep(3)
 
     print(df.shape)
     print("Count of doctors in state ",j," ",count_of_doctors_in_this_state )
+
 
 df.to_csv('out_put.csv')
 print("DOne")
